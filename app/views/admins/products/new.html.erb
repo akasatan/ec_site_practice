@@ -1,0 +1,12 @@
+
+<%= form_with model: @product, local: true do |f| %>
+  <%= f.attachment_field :product_image %>
+  <%= f.label "商品名" %>
+  <%= f.text_field :name %>
+  <%= f.label "商品説明" %>
+  <%= f.text_area :description,rows: 5 %>
+  <%= f.label "税抜価格" %>
+  <%= f.text_field :price %>
+  販売ステータス<%= f.radio_button :is_valid, true %>販売中<%= f.radio_button :is_valid, false %>販売中止
+  <%= f.submit %>
+<% end %>
