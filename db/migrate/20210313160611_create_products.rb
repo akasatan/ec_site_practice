@@ -6,7 +6,7 @@ class CreateProducts < ActiveRecord::Migration[5.0]
       t.text :description
       t.integer :price
       t.string :product_image_id
-      t.boolean :is_valid
+      t.boolean :is_valid, default: true
 
       t.timestamps
     end

@@ -15,6 +15,8 @@
         <li class="Navbar__item"><%= link_to ' Users',users_path,class: 'Navbar__item--col fas fa-users' %></li>
         <li class="Navbar__item"><%= link_to ' Books',products_path ,class: 'Navbar__item--col fas fa-book-open'%></li>
         <li class="Navbar__item"><%= link_to ' logout', destroy_user_session_path, method: :delete,class: 'Navbar__item--col fas fa-sign-out-alt ' %></li>
+      <% elsif admin_signed_in? %>
+        <li class="Navbar__item"><%= link_to "管理者ログアウト", destroy_admin_session_path, method: :delete %></li>
       <% else %>
         <li class="Navbar__item"><%= link_to ' Home',root_path,class: 'Navbar__item--col fas fa-home' %></li>
         <li class="Navbar__item"><%= link_to ' sign up', new_user_registration_path,class: 'Navbar__item--col fas fa-user-plus' %></li>

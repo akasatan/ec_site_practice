@@ -1,3 +1,11 @@
 <h1>管理者用products.index dayo</h1>
 
 <%= link_to "管理者ログアウト", destroy_admin_session_path, method: :delete %>
+
+<%= @products.each do |product| %>
+  <%= product.name %>
+  <%= product.description %>
+  <%= product.price %>
+  <%= attachment_image_tag product, :product_image, :fill, 100, 100 %>
+  <%= product.is_valid %>
+<% end %>

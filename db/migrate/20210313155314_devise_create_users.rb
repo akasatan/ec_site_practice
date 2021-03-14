@@ -38,7 +38,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.integer    :postcode
       t.string     :address
       t.integer    :phone_number
-      t.boolean    :is_vaild
+      t.boolean    :is_valid
 
       t.timestamps null: false
     end
