@@ -1,0 +1,18 @@
+<h2>ユーザ側商品詳細画面</h2>
+      <td>
+        <%= link_to product_path(@product) do %>
+          <%= @product.name %>
+        <% end %>
+      </td>
+      <td><%= @product.description %></td>
+      <td><%= @product.price %></td>
+      <td><%= attachment_image_tag @product, :product_image, :fill, 100, 100 %></td>
+      <td><%= @product.is_valid %></td>
+      
+      <%= form_with model: @cart, url: carts_path, local: true do |f| %>
+        <%= f.label "数量" %>
+        <%= f.text_field :quantity %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <%= f.hidden_field :product_id, value: @product.id %>
+        <%= f.submit "カートに入れる" %>
+      <% end %>

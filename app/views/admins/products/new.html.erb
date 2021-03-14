@@ -1,12 +1,29 @@
-
+<table>
 <%= form_with model: @product, local: true do |f| %>
-  <%= f.attachment_field :product_image %>
-  <%= f.label "商品名" %>
-  <%= f.text_field :name %>
-  <%= f.label "商品説明" %>
-  <%= f.text_area :description,rows: 5 %>
-  <%= f.label "税抜価格" %>
-  <%= f.text_field :price %>
-  販売ステータス<%= f.radio_button :is_valid, true %>販売中<%= f.radio_button :is_valid, false %>販売中止
-  <%= f.submit %>
+  <tr>
+      <td><%= f.attachment_field :product_image %></td>
+  </tr>
+  <tr>
+      <td><%= f.label "商品名" %></td>
+      <td><%= f.text_field :name %></td>
+  </tr>
+  <tr>
+      <td><%= f.label "商品説明" %></td>
+      <td><%= f.text_area :description,rows: 5 %></td>
+  </tr>
+  <tr>
+    <td><%= f.label "税抜価格" %></td>
+    <td><%= f.text_field :price %></td>
+  </tr>
+  <tr>
+    <td>
+      販売ステータス<%= f.radio_button :is_valid, '販売中' %>販売中<%= f.radio_button :is_valid, '販売中止' %>販売中止
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= f.submit "新規登録" %>
+    </td>
+  </tr>
 <% end %>
+</table>
