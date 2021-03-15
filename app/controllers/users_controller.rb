@@ -6,13 +6,13 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = current_user
-    if @user.save
-      redirect_to show_users_path(current_user)
-    else
-      render show
-    end
+    current_user.update(user_params)
+    redirect_to show_users_path
   end
   
+  private
+  def user_params
+    params.require(:user).permit(:firstname, :lastname, :kana_firstname, :kana_lastname, :postcode, :address, :phone_number, :email)
+  end
   
 end
