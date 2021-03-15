@@ -1,0 +1,33 @@
+<h1>Users#edit</h1>
+
+<%= form_with model: current_user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+  <div>
+    <%= f.label "名前" %>
+    (姓)<%= f.text_field :firstname, autofocus: true, class: "form-control" %>
+    (名)<%= f.text_field :lastname, autofocus: true, class: "form-control" %>
+  </div>
+  <div>
+    <%= f.label "フリガナ" %>
+    (姓)<%= f.text_field :kana_firstname, autofocus: true, class: "form-control" %>
+    (名)<%= f.text_field :kana_lastname, autofocus: true, class: "form-control" %>
+  </div>
+  <div>
+    <%= f.label :postcode,'郵便番号(ハイフンなし)' %><br />
+    <%= f.text_field :postcode, autofocus: true, class: "form-control", id: "user_postcode" %>
+  </div>
+  <div>
+    <%= f.label :address,'住所' %><br />
+    <%= f.text_field :address, autofocus: true, class: "form-control", id: "user_address" %>
+  </div>
+  <div>
+    <%= f.label :phone_number,'電話番号' %><br />
+    <%= f.text_field :phone_number, autofocus: true, class: "form-control" %>
+  </div>
+  <div>
+    <%= f.label "メールアドレス" %><br />
+    <%= f.email_field :email, autofocus: true, class: "form-control" %>
+  </div>
+  <div>
+    <%= f.submit "新規登録" ,class: 'btn btn-sm btn-success' %>
+  </div>
+<% end %>

@@ -1,13 +1,20 @@
 Rails.application.routes.draw do
-  get 'products/index'
 
   devise_for :admins, controllers: {
     sessions: 'admins/sessions'
   }
-  devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
+  }
   resources :products
-  resources :users
+  resource :users, only: [ :edit, :update] do
+    collection do
+      patch 'withdraw' => 'public#customers', as: 'withdraw'
+      get 'my_page' => 'users#show', as: 'show'
+    end
+  end
+  
   resources :carts
   namespace :admins do
     resources :products
